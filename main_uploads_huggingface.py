@@ -353,7 +353,8 @@ def upload_large_folder_to_hf(
     
 if __name__=='__main__':
     REPO_ID = 'donaldos-kim/englishcorpus'
-    token = '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'
+    import os
+    token = os.getenv("HF_TOKEN")   # export HF_TOKEN="hf_..." 로 세팅
     ok, msg = login_huggingface(token=token,add_to_git_credential=False)  # CI/서버는 보통 False
     if not ok:
         print(msg)
